@@ -1,0 +1,63 @@
+{
+    "id": "InputCollection",
+    "schemaVersion": "1.1.0",
+    "name": "InputCollection",
+    "revision": "1",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "applicant_id",
+            "type": "section",
+            "title": "User ID",
+            "content": [
+                {
+                    "id": "applicant_id",
+                    "type": "string",
+                    "label": "SF Candidate ID",
+                    "readOnly": false,
+                    "value": "${context.response.CanID}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "Company_Code",
+                    "type": "string",
+                    "label": "Country",
+                    "readOnly": false,
+                    "value": "${context.response.country}",
+                    "control": {
+                        "type": "Dropdown",
+                        "properties": {
+                            "items": [
+                                {
+                                    "value": "ACE_USA",
+                                    "displayValue": "\"ACE_USA\""
+                                },
+                                {
+                                    "value": "ACE_IND",
+                                    "displayValue": "\"ACE_IND\""
+                                }
+                            ]
+                        }
+                    },
+                    "constraints": {
+                        "required": true,
+                        "enum": [
+                            "ACE_USA",
+                            "ACE_IND"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "decisions": [
+        {
+            "id": "find_new_hire",
+            "text": "Find New Hire",
+            "decisionType": "positive"
+        }
+    ]
+}

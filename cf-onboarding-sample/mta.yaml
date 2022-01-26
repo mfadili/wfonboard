@@ -1,0 +1,16 @@
+ID: sample.onboarding.mta
+_schema-version: '2.1'
+parameters:
+  deploy_mode: html5-repo
+version: 0.0.6
+modules:
+  - name: onboarding
+    type: com.sap.application.content
+    path: onboarding
+    requires:
+      - name: wm_workflow
+        parameters:
+          content-target: true
+resources:
+  - name: wm_workflow
+    type: org.cloudfoundry.existing-service
